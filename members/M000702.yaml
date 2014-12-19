@@ -5,6 +5,14 @@ contact_form:
   steps:
     - visit: "http://www.mikulski.senate.gov/contact"
     - fill_in:
+        - name: fname
+          selector: "#fname"
+          value: $NAME_FIRST
+          required: true
+        - name: lname
+          selector: "#lname"
+          value: $NAME_LAST
+          required: true
         - name: mailing_streetAddress1
           selector: "#mailing_streetAddress1"
           value: $ADDRESS_STREET
@@ -43,7 +51,7 @@ contact_form:
           required: true
     - select:
         - name: actions
-          selector: "#contactForm select[name='actions']"
+          selector: "#actions"
           value: opinion
           required: false
           options:
@@ -181,12 +189,9 @@ contact_form:
           selector: "#response_y"
           value: "Y"
     - uncheck:
-        - name: military_toggle
-          selector: "#military_toggle"
-          value: military
-        - name: ecclesiastical_toggle
-          selector: "#ecclesiastical_toggle"
-          value: ecclesiastical
+        - name: newsletter
+          selector: "#newsletter_y"
+          value: "Y"
     - click_on:
         - value: Send
           selector: "#side-search-btn"
@@ -194,4 +199,4 @@ contact_form:
     headers:
       status: 200
     body:
-      contains: Thank You
+      contains: Thank you for contacting me.

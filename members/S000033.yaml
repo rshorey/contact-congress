@@ -3,7 +3,57 @@ contact_form:
   method: post
   action: /contact/comment
   steps:
-    - visit: "http://www.sanders.senate.gov/contact/comment"
+    - visit: http://www.sanders.senate.gov/contact/comment
+    - wait:
+      - value: 2
+    - click_on:
+      - selector: "a.cerabox-close"
+    - select:
+      - name: subject
+        selector: "#subject"
+        value: $TOPIC
+        required: true
+        options:
+          Agriculture: AG
+          Animal Rights: ANRTS
+          Appropriations: APPROPS
+          "Arts & Humanities": ARTS
+          "Banking & Financial Services": BANK
+          Budget: BGT
+          Business and Commerce: BIZ
+          Campaign/Election Reform: CAMPAIGN FINANCE
+          Consumer Protection: BANK
+          Defense and Military: DEF
+          Economic Development: ECON
+          Education: ED
+          Energy: EN
+          Environment: ENV
+          Ethics Reform: ETH
+          Foreign Relations: FR
+          Guns: GUNS
+          Healthcare: HEALTH CARE
+          Homeland Security: DHS
+          Housing and Urban Affairs: HUD
+          Immigration: IMMG
+          Insurance Problems: HEALTH CARE
+          Interior: MISC
+          Intelligence: JUD
+          Judiciary: JUD
+          Labor: LABOR
+          Nutrition: FDA
+          Other: MISC
+          Postal Service: POSTAL
+          Science and Innovation: SCI
+          Seniors: SENIORS
+          Social Issues: ECON
+          Taxes: TAXES
+          Technology and Telecom: TELECOM AND TECH
+          Trade: TRADE
+          Transportation: TRANS
+          Veterans: VET
+          Women and Children: WOMEN
+    - find:
+      - selector: "#fname"
     - fill_in:
         - name: fname
           selector: "#fname"

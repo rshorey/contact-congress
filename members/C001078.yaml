@@ -42,63 +42,6 @@ contact_form:
           value: $MESSAGE
           required: true
     - select:
-        - name: state
-          selector: "#req_state"
-          value: $ADDRESS_STATE_POSTAL_ABBREV
-          required: true
-          options:
-            North Carolina: NC
-            Alaska: AK
-            Alabama: AL
-            Arkansas: AR
-            Arizona: AZ
-            California: CA
-            Colorado: CO
-            Connecticut: CT
-            District of Columbia: DC
-            Delaware: DE
-            Florida: FL
-            Georgia: GA
-            Hawaii: HI
-            Iowa: IA
-            Idaho: ID
-            Illinois: IL
-            Indiana: IN
-            Kansas: KS
-            Kentucky: KY
-            Louisiana: LA
-            Massachusetts: MA
-            Maryland: MD
-            Maine: ME
-            Michigan: MI
-            Minnesota: MN
-            Missouri: MO
-            Mississippi: MS
-            Montana: MT
-            North Dakota: ND
-            Nebraska: NE
-            New Hampshire: NH
-            New Jersey: NJ
-            New Mexico: NM
-            Nevada: NV
-            New York: NY
-            Ohio: OH
-            Oklahoma: OK
-            Oregon: OR
-            Pennsylvania: PA
-            Puerto Rico: PR
-            Rhode Island: RI
-            South Carolina: SC
-            South Dakota: SD
-            Tennessee: TN
-            Texas: TX
-            Utah: UT
-            Virginia: VA
-            Vermont: VT
-            Washington: WA
-            Wisconsin: WI
-            West Virginia: WV
-            Wyoming: WY
         - name: subject
           selector: "#req_subject"
           value: $TOPIC
@@ -129,6 +72,9 @@ contact_form:
     - click_on:
         - value: Submit
           selector: "#submitButton"
+    - find:
+        - selector: "p"
+          value: "Your message has been successfully submitted!"
   success:
     headers:
       status: 200
